@@ -1,0 +1,5 @@
+#!/bin/sh
+pid="$(lsof -ti TCP:8080)"
+if [ -n "$pid" ]; then
+  kill $pid
+fi
