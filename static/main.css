@@ -1,0 +1,28 @@
+:root {
+  --brown  : #231D10;
+  --white  : #DADADA;
+  --orange : #FF4500;
+}
+
+.main {
+  background-color: var(--brown);
+  color: var(--white);
+
+  display: flex;
+  padding: 15pt;
+}
+
+.left {
+  justify-content: left;
+  width: 25%;
+}
+
+.center {
+  justify-content: center;
+  width: 50%;
+}
+
+.right {
+  justify-content: right;
+  width: 25%;
+}
