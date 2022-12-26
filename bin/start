@@ -1,2 +1,2 @@
 #!/bin/bash
-lighttpd -f server.conf
+lighttpd -f server.conf $@
