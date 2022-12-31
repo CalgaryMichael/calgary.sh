@@ -1,28 +1,149 @@
 :root {
-  --brown  : #231D10;
+  --peach  : #FFE0AE;
+  --green  : #6C8255;
   --white  : #DADADA;
   --orange : #FF4500;
+  --gold   : #FFA303;
+}
+
+/* TODO: convert these to WOFF */
+@font-face {
+  font-family: Syne ExtraBold;
+  src: url("../fonts/syne/static/syne-extrabold.ttf");
+}
+
+@font-face {
+  font-family: Hind;
+  src: url("../fonts/hind/hind-regular.ttf");
+}
+
+body {
+  background-color: var(--peach);
+  color: black;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:visited {
+  color: black;
+}
+
+a.link {
+  font-size: 16pt;
+  padding-left: 8pt;
+  border-left: 16pt solid var(--orange);
+  transition: 0.5s all;
+}
+
+a.link:hover {
+  padding-left: 4pt;
+  border-left: 20pt solid var(--orange);
 }
 
 .main {
-  background-color: var(--brown);
-  color: var(--white);
-
   display: flex;
-  padding: 15pt;
+  height: 100vh;
 }
 
 .left {
+  display: flex;
   justify-content: left;
-  width: 25%;
+  width: 20%;
 }
 
 .center {
-  justify-content: center;
-  width: 50%;
+  display: flex;
+  justify-content: left;
+  flex-direction: column;
+  width: 55%;
+  padding-left: 25px;
 }
 
 .right {
+  display: flex;
+  align-items: flex-end;
   justify-content: right;
   width: 25%;
+}
+
+.title-card {
+  padding-top: 5%;
+  padding-bottom: 16pt;
+}
+
+.title {
+  font-size: 62pt;
+  font-family: Syne ExtraBold, sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.wall {
+  font-size: 16pt;
+  font-family: Hind, sans-serif;
+}
+
+.wall > br {
+  display: block;
+  margin-bottom: 16pt;
+}
+
+.sig-card {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  border-top: 1px solid black;
+
+  margin-right: 10px;
+  padding-top: 2px;
+  padding-right: 18px;
+  padding-bottom: 15px;
+}
+
+.sig-token {
+  width: 80pt;
+  height: 80pt;
+  background-color: var(--orange);
+}
+
+.sig {
+  font-size: 80pt;
+  font-family: "Roboto", sans-serif;
+  font-weight: 100;
+
+  padding-top: 20px;
+  padding-left: 12px;
+
+  transition: font-size 1s;
+}
+
+.sig:hover {
+  font-size: 82pt;
+}
+
+.sidebar-menu {
+  text-transform: uppercase;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+
+  list-style-type: none;
+  padding-top: 12%;
+}
+
+.menu-item {
+  padding-bottom: 5pt;
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
 }
