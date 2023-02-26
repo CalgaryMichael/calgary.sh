@@ -61,12 +61,12 @@ a.link:hover {
   flex-direction: column;
   width: 55%;
   padding-left: 25px;
+  padding-right: 25px;
 }
 
 .right {
   display: flex;
   align-items: flex-end;
-  justify-content: right;
   width: 25%;
 }
 
@@ -94,6 +94,7 @@ a.link:hover {
 
 .sig-card {
   width: 100%;
+  position: fixed;
   display: flex;
   align-items: center;
   border-top: 1px solid black;
@@ -126,12 +127,13 @@ a.link:hover {
 }
 
 .sidebar-menu {
+  position: fixed;
   text-transform: uppercase;
   font-family: "Roboto", sans-serif;
   font-weight: 300;
 
   list-style-type: none;
-  padding-top: 12%;
+  padding-top: 2%;
 }
 
 .menu-item {

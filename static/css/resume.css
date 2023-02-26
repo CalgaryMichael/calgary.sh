@@ -1,0 +1,9 @@
+.job-company {
+  font-family: "Roboto", sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.job-description > li {
+  padding-bottom: 10px;
+}
