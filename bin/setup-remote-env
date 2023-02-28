@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# install packages
+apt-get update
+apt-get -y install lighttpd nginx
+
+# setup ssh
+ssh-keygen -t ed25519 -C "me@calgary.sh"
+eval "$(ssh-agent -s)"
+# once this is generated, you can copy the `/root/.ssh/<keyname>.pub`
+# to github as a RO Deployment Key for the repo
+
+cd /root
+git clone git@github.com:CalgaryMichael/calgary.sh.git
+cd /root/calgary.sh
+
+# start lighttpd server
+./bin/start
+
+# setup nginx server
+mv /etc/nginx/nginx.conf /etc/nginx/nginx.default.conf
+ln -s /root/calgary.sh/nginx.conf /etc/nginx/nginx.conf
+ln -s /root/calgary.sh/nginx.conf /etc/nginx/sites-available/calgary.sh
+ln -s /root/calgary.sh/nginx.conf /etc/nginx/sites-enabled/calgary.sh
+kill $(lsof -t -i TCP:80)
+nginx -s reload
