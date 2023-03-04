@@ -2,7 +2,11 @@
 
 # install packages
 apt-get update
-apt-get -y install lighttpd nginx
+apt-get -y install \
+  lighttpd \
+  nginx \
+  certbot \
+  python3-certbot-nginx
 
 # setup ssh
 ssh-keygen -t ed25519 -C "me@calgary.sh"
@@ -24,3 +28,9 @@ ln -s /root/calgary.sh/nginx.conf /etc/nginx/sites-available/calgary.sh
 ln -s /root/calgary.sh/nginx.conf /etc/nginx/sites-enabled/calgary.sh
 kill $(lsof -t -i TCP:80)
 nginx -s reload
+
+# add HTTPS cert
+ufw enable
+ufw allow 'OpenSSH'
+ufw allow 'Nginx Full'
+certbot --nginx -d calgary.sh -d www.calgary.sh
